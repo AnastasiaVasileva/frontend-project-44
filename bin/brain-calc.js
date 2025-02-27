@@ -1,46 +1,42 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
+import runGraetings from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-const name = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${name}!`);
-console.log('What is the result of the expression?');
+function calcGame() {
+  // eslint-disable-next-line no-use-before-define
+  runGraetings('What is the result of the expression?', generateRound);
+}
 
-const operations = ['+', '-', '*'];
 const randomOperation = () => {
+  const operations = ['+', '-', '*'];
+
   const index = Math.floor(Math.random() * operations.length);
   return operations[index];
 };
-let correctAnswer = 0;
 
-for (let i = 0; i < 3; i += 1) {
-  const resultRandomOperation = randomOperation();
+const calculation = (num1, num2, operator) => {
+  let result = null;
+
+  if (operator === '+') {
+    result = num1 + num2;
+  } else if (operator === '-') {
+    result = num1 - num2;
+  } else if (operator === '*') {
+    result = num1 * num2;
+  }
+
+  return result;
+};
+
+function generateRound() {
   const firstNumber = Math.floor(Math.random() * 10) + 1;
   const secondNunber = Math.floor(Math.random() * 10) + 1;
-  let result = 0;
+  const resultRandomOperation = randomOperation();
 
-  console.log(`Question:  ${firstNumber} ${resultRandomOperation} ${secondNunber}`);
+  const question = `Question:  ${firstNumber} ${resultRandomOperation} ${secondNunber}`;
 
-  if (resultRandomOperation === '+') {
-    result = firstNumber + secondNunber;
-  } else if (resultRandomOperation === '-') {
-    result = firstNumber - secondNunber;
-  } else if (resultRandomOperation === '*') {
-    result = firstNumber * secondNunber;
-  }
+  const answer = String(calculation(firstNumber, secondNunber, resultRandomOperation));
 
-  const answer = readlineSync.question('Your answer: ');
-
-  if (Number(answer) === result) {
-    console.log('Correct!');
-    correctAnswer += 1;
-  } else if (Number(answer) !== result) {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
-    console.log(`Let's try again, ${name}!`);
-    break;
-  }
+  return [question, answer];
 }
 
-if (correctAnswer === 3) {
-  console.log(`Congratulations, ${name}`);
-}
+calcGame();
