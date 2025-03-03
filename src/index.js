@@ -13,7 +13,7 @@ const runGraetings = (rules, generateRound) => {
     const [question, correctAnswer] = generateRound();
 
     console.log(`Question: ${question}`);
-    const userAnswer = +readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (correctAnswer === userAnswer) {
       console.log('Correct!');
