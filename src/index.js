@@ -22,7 +22,7 @@ const runGraetings = (rules, generateRound) => {
       userAnswer = Number(userAnswer);
     }
 
-    if (correctAnswer === userAnswer) {
+    if (correctAnswer == userAnswer) {
       console.log('Correct!');
       correctResult += 1;
     } else {
