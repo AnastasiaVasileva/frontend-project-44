@@ -13,7 +13,7 @@ function generateRound() {
 
   const answer = isEven(question) ? 'yes' : 'no';
 
-  return [question, answer];
+  return [question, String(answer)];
 }
 
 evenGame();

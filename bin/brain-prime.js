@@ -26,7 +26,7 @@ function primality(num) {
 function generateRound() {
   const question = getRandomNumber();
   const answer = primality(question);
-  return [question, answer];
+  return [question, String(answer)];
 }
 
 primeGame();

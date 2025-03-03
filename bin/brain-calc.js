@@ -36,7 +36,7 @@ function generateRound() {
 
   const answer = String(calculation(firstNumber, secondNunber, resultRandomOperation));
 
-  return [question, answer];
+  return [question, String(answer)];
 }
 
 calcGame();

@@ -25,7 +25,7 @@ function generateRound() {
 
   const question = newArr.join(' ');
   const answer = correctArray[randomIndex];
-  return [question, answer];
+  return [question, String(answer)];
 }
 
 progGame();

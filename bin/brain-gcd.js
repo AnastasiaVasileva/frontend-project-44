@@ -22,7 +22,7 @@ function generateRound() {
 
   const answer = gcdfunc();
 
-  return [question, answer];
+  return [question, String(answer)];
 }
 
 gcdGame();
