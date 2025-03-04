@@ -4,6 +4,7 @@ const roundsCount = 3;
 
 export default function runGraetings(rules, generateRound) {
   const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
+  console.log(`Hello, ${name}`);
   console.log('rules: ', rules);
 
   for (let i = 0; i < roundsCount; i += 1) {
