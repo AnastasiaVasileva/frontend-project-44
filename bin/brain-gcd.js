@@ -18,7 +18,7 @@ function generateRound() {
     return firstNumber;
   }
 
-  const question = `Question:  ${firstNumber} ${secondNunber}`;
+  const question = `${firstNumber} ${secondNunber}`;
 
   const answer = gcdfunc();
 

@@ -32,11 +32,11 @@ function generateRound() {
   const secondNunber = Math.floor(Math.random() * 10) + 1;
   const resultRandomOperation = randomOperation();
 
-  const question = `Question:  ${firstNumber} ${resultRandomOperation} ${secondNunber}`;
+  const question = `${firstNumber} ${resultRandomOperation} ${secondNunber}`;
 
   const answer = String(calculation(firstNumber, secondNunber, resultRandomOperation));
 
-  return [question, String(answer)];
+  return [question, answer];
 }
 
 calcGame();
