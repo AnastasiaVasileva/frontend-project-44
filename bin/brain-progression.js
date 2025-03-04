@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 import runGraetings from '../src/index.js';
 
+function getRandomRange(min = 0, max = 100) {
+  return Math.floor(min + Math.random() * (max - min + 1));
+}
+
 const generateRandomProgression = (start, stepNumber, hiddenIndex) => {
   const progression = [];
 
@@ -15,12 +19,9 @@ const generateRandomProgression = (start, stepNumber, hiddenIndex) => {
 };
 
 const generateRound = () => {
-  const arrayLength = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-  const maxValue = 100;
-  const stepNumber = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-  const start = Math.floor(Math.random() * (maxValue - (arrayLength - 1) * stepNumber + 1));
-  const hidden = Math.floor(Math.random() * arrayLength);
-
+  const start = getRandomRange();
+  const stepNumber = getRandomRange(2, 10);
+  const hidden = getRandomRange(0, 9);
   const [question, answer] = generateRandomProgression(start, stepNumber, hidden);
 
   return [question, answer];
