@@ -20,7 +20,7 @@ function generateRound() {
   const forUserArray = [...correctArray];
 
   const randomIndex = Math.floor(Math.random() * arrayLength);
-  forUserArray[randomIndex] = '...';
+  forUserArray[randomIndex] = '..';
   const newArr = forUserArray;
 
   const question = newArr.join(' ');
